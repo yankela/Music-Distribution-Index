@@ -1,0 +1,19 @@
+<h1>Music Distribution</h1>
+  <%= form_tag site_search_path, method: :get do %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Go!" %>
+<% end %>
+<%if @results.nil?%>
+  Search for whatever you'd like
+  <%elsif @results.empty?%>
+  Try your search again.
+<%else%>
+<%#= params[:term] %>
+<%# if @results.empty? %>
+  Try your search again.
+<%# else %>
+  <% @results.each do |result| %>
+    <p><%= result.class%>: <%= link_to result.name, result  %></p>
+   <%#= render result%>
+  <% end %>
+<%end%>
